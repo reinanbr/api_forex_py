@@ -55,9 +55,12 @@ currency_to_country = {
 def usd_page(minutes:int):
     now = datetime.now()
     last_time = now - timedelta(minutes=minutes)
+
     usd_last = c.get_rates('USD',last_time)
     usd_now = c.get_rates('USD',now)
     
+    print(usd_now['BRL'],now)
+    print(usd_last['BRL'],last_time)
     hours = minutes//60
     days = hours//24
     timedelt = {'seconds':minutes*60,'minutes': minutes,'hours':hours,'days':days}
